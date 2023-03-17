@@ -101,7 +101,6 @@ namespace SimpleAlgorithmsApp
             return false;
         }
 
-        public int Count { get { return count; } }
         public bool IsEmpty { get { return count == 0; } }
 
         public void Clear()
@@ -162,17 +161,7 @@ namespace SimpleAlgorithmsApp
                 iNode = iNode.Previous;
             }
         }
-        public bool Contains(T data)
-        {
-            DoublyNode<T> current = head;
-            while (current != null)
-            {
-                if (current.Data.Equals(data))
-                    return true;
-                current = current.Next;
-            }
-            return false;
-        }
+
 
         public IEnumerable<T> BackEnumerator()
         {
@@ -252,29 +241,29 @@ class Program
                 .Select(s => s[rand.Next(s.Length)]).ToArray());
     }
 
-    Person GeneratePerson()
-    {
-        Random rand = new Random();
-        string[] names = {"Misha", "Denis", "Dima", "Ganzales"};
+    //Person GeneratePerson()
+    //{
+    //    Random rand = new Random();
+    //    string[] names = {"Misha", "Denis", "Dima", "Ganzales"};
 
-        string[] secondNames = {"Mikhailovich", "Denisovich", "Dmitrivich"};
+    //    string[] secondNames = {"Mikhailovich", "Denisovich", "Dmitrivich"};
 
-        string[] lastNames = {"Korkishko", "Eprintsev", "Razumovski"};
+    //    string[] lastNames = {"Korkishko", "Eprintsev", "Razumovski"};
 
-        DateTime[] dates = {new DateTime(1, 1, 1990), new DateTime(26, 07, 2002),
-                     new DateTime(1, 3, 1975), new DateTime(6, 10, 1984),
-                     new DateTime(23, 11, 2003), new DateTime(12, 10, 2001),
-                     new DateTime(13, 03, 1978), new DateTime(23, 05, 1980),
-                     new DateTime(1, 1, 2021), new DateTime(3, 2, 2005)};
+    //    DateTime[] dates = {new DateTime(1, 1, 1990), new DateTime(26, 07, 2002),
+    //                 new DateTime(1, 3, 1975), new DateTime(6, 10, 1984),
+    //                 new DateTime(23, 11, 2003), new DateTime(12, 10, 2001),
+    //                 new DateTime(13, 03, 1978), new DateTime(23, 05, 1980),
+    //                 new DateTime(1, 1, 2021), new DateTime(3, 2, 2005)};
 
-        var person = new Person();
-        person.firstName = names[rand.Next(0, 7)];
-        person.secondName = secondNames[rand.Next(0, 6)];
-        person.lastName = lastNames[rand.Next(0, 8)];
-        person.birthday = dates[rand.Next(0, 9)];
+    //    var person = new Person();
+    //    person.firstName = names[rand.Next(0, 7)];
+    //    person.secondName = secondNames[rand.Next(0, 6)];
+    //    person.lastName = lastNames[rand.Next(0, 8)];
+    //    person.birthday = dates[rand.Next(0, 9)];
 
-        return person;
-    }
+    //    return person;
+    //}
 
     public void FirstTest()
     {
@@ -287,7 +276,7 @@ class Program
         int max = list.Peek(),
                 min = list.Peek(),
                 sum = 0,
-                size = list.Count;
+                size = list.Size();
 
         foreach (var t in list.BackEnumerator())
         {
